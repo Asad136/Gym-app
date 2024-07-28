@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'reports' %}">Reports</a></li>
+                <li><a href="{% url 'add_member' %}">Add Member</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>Members</h2>
+            <ul>
+                {% for member in members %}
+                    <li>{{ member.name }} - {{ member.status }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2>Members Due Soon</h2>
+            <ul>
+                {% for member in members_due_soon %}
+                    <li>{{ member.name }} - Due on {{ member.fee_due_date }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
