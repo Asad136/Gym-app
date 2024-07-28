@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,9 @@
             <h2>Members</h2>
             <ul>
                 {% for member in members %}
+                    <div class="img-section">
+                       <img src ="{{member.picture.url}}" alt="{{member.name}}"> 
+                    </div>
                     <li>{{ member.name }} - {{ member.status }}</li>
                 {% endfor %}
             </ul>
