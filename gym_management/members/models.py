@@ -4,8 +4,8 @@ from datetime import timedelta
 
 class Member(models.Model):
     STATUS_CHOICES = (
-        ('Active', 'Active'),
-        ('Non Active', 'Non Active'),
+        ('paid', 'paid'),
+        ('Not paid', 'Not paid'),
     )
 
     name = models.CharField(max_length=100)

@@ -24,7 +24,10 @@
                     <div class="img-section">
                        <img src ="{{member.picture.url}}" alt="{{member.name}}"> 
                     </div>
-                    <li>{{ member.name }} - {{ member.status }}</li>
+                    <li> <a href="{% url 'member_details' pk=member.pk %}">{{ member.name }} </a> - {{ member.status }}</li>
+                    <a href="{% url 'update_member' pk=member.pk %}">update member</a>
+                    <a href="{% url 'delete_member' pk=member.pk %}">delete member</a>
+
                 {% endfor %}
             </ul>
         </section>
@@ -33,6 +36,7 @@
             <ul>
                 {% for member in members_due_soon %}
                     <li>{{ member.name }} - Due on {{ member.fee_due_date }}</li>
+                    
                 {% endfor %}
             </ul>
         </section>

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Member</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1> Member detail</h1>
+            <ul>
+                <li><img src="{{members.picture.url}}" alt= "{{members.name}}"></li>
+                <li>{{members.name}}</li>
+                <li>{{members.status}}</li>
+                <li>{{members.fee_due_date}}</li>
+
+            </ul>
+    </div>
+</body>
+</html>

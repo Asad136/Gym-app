@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete Member</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>delete Member</h1>
+        <p> are you sure you want to delete the member</p>
+        <form method ='post'>
+            {% csrf_token %}
+            <button type="submit">delete member</button>
+        </form>
+        <a href = "{% url 'dashboard' %}">back to dashboard</a>
+    </div>
+</body>
+</html>
