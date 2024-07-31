@@ -27,6 +27,8 @@
                     <li> <a href="{% url 'member_details' pk=member.pk %}">{{ member.name }} </a> - {{ member.status }}</li>
                     <a href="{% url 'update_member' pk=member.pk %}">update member</a>
                     <a href="{% url 'delete_member' pk=member.pk %}">delete member</a>
+                    <a href="{% url 'add_payment' pk=member.pk %}">Add Payment</a>
+
 
                 {% endfor %}
             </ul>

@@ -26,6 +26,13 @@
         </form>
         {% if total_revenue %}
             <h2>Total Revenue: {{ total_revenue }}</h2>
+            <ul>
+                {% for payment in payments %}
+                    <li>{{ payment.member.name }} - {{ payment.amount }} on {{ payment.date }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No payments found for the specified date range.</p>
         {% endif %}
     </div>
 </body>

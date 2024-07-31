@@ -23,3 +23,13 @@ class Member(models.Model):
 # for fee due date calculation
     def is_fee_due(self):
         return timezone.now().date() >= self.fee_due_date() - timedelta(days=2)
+    
+#for payment 
+
+class FeePayment(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE, related_name='payments')
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateField()
+
+    def __str__(self):
+        return f"{self.member.name} - {self.amount} on {self.date}"
