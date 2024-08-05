@@ -22,14 +22,16 @@
             <ul>
                 {% for member in members %}
                     <div class="img-section">
-                       <img src ="{{member.picture.url}}" alt="{{member.name}}"> 
+                       <img src ="{{ member.picture.url }}" alt="{{ member.name }}"> 
                     </div>
-                    <li> <a href="{% url 'member_details' pk=member.pk %}">{{ member.name }} </a> - {{ member.status }}</li>
-                    <a href="{% url 'update_member' pk=member.pk %}">update member</a>
-                    <a href="{% url 'delete_member' pk=member.pk %}">delete member</a>
-                    <a href="{% url 'add_payment' pk=member.pk %}">Add Payment</a>
-
-
+                    <div class="member_buttons">
+                        <li class="member_details">
+                            <a href="{% url 'member_details' pk=member.pk %}">{{ member.name }}</a> - {{ member.status }}
+                        </li>
+                        <a href="{% url 'update_member' pk=member.pk %}" class="update_member">Update Member</a>
+                        <a href="{% url 'delete_member' pk=member.pk %}" class="delete_member">Delete Member</a>
+                        <a href="{% url 'add_payment' pk=member.pk %}" class="add_payment">Add Payment</a>
+                    </div>
                 {% endfor %}
             </ul>
         </section>
@@ -38,7 +40,6 @@
             <ul>
                 {% for member in members_due_soon %}
                     <li>{{ member.name }} - Due on {{ member.fee_due_date }}</li>
-                    
                 {% endfor %}
             </ul>
         </section>
